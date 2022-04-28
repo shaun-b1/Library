@@ -1,0 +1,56 @@
+body {
+    background-image: url("../images/pexels-fwstudio-131667.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#top-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    margin: 1.5rem;
+}
+
+header>h1,
+header>h2 {
+    margin: 0.5rem;
+}
+
+header>h1 {
+    font-size: 4rem;
+}
+
+header>h2 {
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5rem;
+}
+
+nav>button {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+    border-radius: 12px;
+    background-image: linear-gradient( burlywood, saddlebrown);
+    color: rgba(255, 255, 255, 1);
+    border-style: none;
+}
+
+@media (max-width: 715px) {
+    #top-bar {
+        justify-content: center;
+    }
+    header {
+        justify-content: center;
+        margin: 1.5rem 1.5rem 0;
+    }
+}
