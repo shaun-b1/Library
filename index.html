@@ -20,7 +20,7 @@
         </header>
 
         <nav>
-            <button>Add Book to Library</button>
+            <button type="button" id="new-book">Add Book to Library</button>
         </nav>
     </section>
 
@@ -29,6 +29,46 @@
 
         </ul>
     </main>
+
+    <section class="modal">
+        <form id="my-form">
+
+            <h2>Enter your book</h2>
+            <div>
+                <label for="title">
+                    <span>Title:</span>
+                </label>
+                <input type="text" name="title" id="title">
+            </div>
+
+            <div>
+                <label for="author">
+                    <span>Author:</span>
+                </label>
+                <input type="text" name="author" id="author">
+            </div>
+
+            <div>
+                <label for="pages">
+                    <span>Number of pages:</span>
+                </label>
+                <input type="text" name="pages" id="pages">
+            </div>
+
+            <div>
+                <label for="read">
+                    <span>Have you read it?:</span>
+                </label>
+                <input type="checkbox" name="read" id="read" value="false">
+            </div>
+
+            <div>
+                <button type="reset" id="close">Cancel</button>
+                <button type="submit" id="create-book">Submit</button>
+            </div>
+
+        </form>
+    </section>
 
 </body>
 

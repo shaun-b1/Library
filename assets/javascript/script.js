@@ -1,3 +1,15 @@
+window.onload = function() {
+    addToShelf()
+    createDeleteButtons()
+}
+
+const bookshelf = document.querySelector(".bookshelf")
+const bookEntry = document.querySelector(".modal")
+const newBookButton = document.querySelector("#new-book")
+const hideBookEntry = document.querySelector("#close")
+const submit = document.querySelector("#create-book")
+
+
 const myLibrary = [{
     title: "The Eye of the World",
     author: "Robert Jordan",
@@ -22,29 +34,80 @@ function Book(title, author, pages, read) {
     this.read = read
 };
 
-Book.prototype.addBookToLibrary = function() {
-    myLibrary.push(this)
+newBookButton.addEventListener('click', () => {
+    bookEntry.style.display = "block"
+});
+
+hideBookEntry.addEventListener('click', () => {
+    bookEntry.style.display = "none"
+});
+
+function addToLibrary() {
+    const newBook = new Book(
+        document.getElementById("title").value,
+        document.getElementById("author").value,
+        document.getElementById("pages").value
+    )
+    myLibrary.push(newBook)
 };
 
+function addToShelf() {
+    clearMyLibrary()
+    for (const book of myLibrary) {
+        const item = document.createElement("li")
+        item.classList.add('book')
 
-const bookshelf = document.querySelector(".bookshelf")
+        const title = document.createElement("h2")
+        title.textContent = `${book.title}`
 
-for (const book of myLibrary) {
-    const item = document.createElement("li")
-    item.classList.add('book')
+        const author = document.createElement("h2")
+        author.textContent = `${book.author}`
 
-    const title = document.createElement("h2")
-    title.textContent = `${book.title}`
+        const pages = document.createElement("p")
+        pages.textContent = `${book.pages} pages`
 
-    const author = document.createElement("h2")
-    author.textContent = `${book.author}`
+        const read = document.createElement("p")
+        read.textContent = book.read == true ? "I've read this" : "I haven't read this yet"
 
-    const pages = document.createElement("p")
-    pages.textContent = `${book.pages} pages`
+        const deleteButton = document.createElement("button")
+        deleteButton.classList.add("delete-button")
+        deleteButton.setAttribute("data-index", `${myLibrary.indexOf(book)}`)
+        deleteButton.textContent = "Delete me!"
 
-    const read = document.createElement("p")
-    read.textContent = book.read == true ? "I've read this" : "I haven't read this yet"
+        item.append(title, author, pages, read, deleteButton)
+        bookshelf.appendChild(item)
+    }
+}
 
-    item.append(title, author, pages, read)
-    bookshelf.appendChild(item)
+function prevent() {
+    const form = document.querySelector("#my-form")
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+    })
+}
+
+function clearMyLibrary() {
+    while (bookshelf.firstChild) {
+        bookshelf.removeChild(bookshelf.lastChild)
+    }
+}
+
+submit.addEventListener("click", () => {
+    prevent()
+    addToLibrary()
+    addToShelf()
+    createDeleteButtons()
+    bookEntry.style.display = "none"
+    document.getElementById("my-form").reset()
+})
+
+function createDeleteButtons() {
+    const deleteButtons = document.querySelectorAll(".delete-button")
+    deleteButtons.forEach((element) => {
+        element.addEventListener('click', () => {
+            myLibrary.splice(element.dataset.index, 1)
+            addToShelf()
+            createDeleteButtons()
+        })
+    })
 }
