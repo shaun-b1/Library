@@ -31,7 +31,7 @@ function Book(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
-    this.read = read
+    this.read = read ? true : false
 };
 
 newBookButton.addEventListener('click', () => {
@@ -46,7 +46,8 @@ function addToLibrary() {
     const newBook = new Book(
         document.getElementById("title").value,
         document.getElementById("author").value,
-        document.getElementById("pages").value
+        document.getElementById("pages").value,
+        document.getElementById("true").checked
     )
     myLibrary.push(newBook)
 };
@@ -67,12 +68,23 @@ function addToShelf() {
         pages.textContent = `${book.pages} pages`
 
         const read = document.createElement("p")
+        read.classList.add('read')
         read.textContent = book.read == true ? "I've read this" : "I haven't read this yet"
 
         const deleteButton = document.createElement("button")
         deleteButton.classList.add("delete-button")
         deleteButton.setAttribute("data-index", `${myLibrary.indexOf(book)}`)
         deleteButton.textContent = "Delete me!"
+
+        read.addEventListener('click', () => {
+            if (read.textContent === "I've read this") {
+                read.textContent = "I haven't read this yet"
+                book.read = false
+            } else {
+                read.textContent = "I've read this"
+                book.read = true
+            }
+        })
 
         item.append(title, author, pages, read, deleteButton)
         bookshelf.appendChild(item)
