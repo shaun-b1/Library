@@ -30,45 +30,49 @@
         </ul>
     </main>
 
-    <section class="modal">
-        <form id="my-form">
-
+    <section id="modal">
+        <div id="book-entry-title">
             <h2>Enter your book</h2>
+        </div>
+        <form id="book-entry-form">
+
             <div>
                 <label for="title">
-                    <span>Title:</span>
+                    <p>Title:</p>
                 </label>
                 <input type="text" name="title" id="title">
             </div>
 
             <div>
                 <label for="author">
-                    <span>Author:</span>
+                    <p>Author:</p>
                 </label>
                 <input type="text" name="author" id="author">
             </div>
 
             <div>
                 <label for="pages">
-                    <span>Number of pages:</span>
+                    <p>Pages:</p>
                 </label>
                 <input type="text" name="pages" id="pages">
             </div>
 
             <div>
                 <label for="read">
-                    <span>Have you read it?:</span>
+                    <p>Read:</p>
                 </label>
-                <input type="radio" name="read" id="true" value="true">
-                <input type="radio" name="read" id="false" value="false">
-            </div>
+                <span id="read-radio-buttons">
+                    Yes<input type="radio" name="read" id="true" value="true">
+                    No<input type="radio" name="read" id="false" value="false">
+                </span>
 
-            <div>
-                <button type="reset" id="close">Cancel</button>
-                <button type="submit" id="create-book">Submit</button>
             </div>
 
         </form>
+        <div id="book-entry-button-group">
+            <button type="reset" id="close">Cancel</button>
+            <button type="submit" id="create-book">Submit</button>
+        </div>
     </section>
 
 </body>

@@ -4,7 +4,7 @@ window.onload = function() {
 }
 
 const bookshelf = document.querySelector(".bookshelf")
-const bookEntry = document.querySelector(".modal")
+const bookEntry = document.querySelector("#modal")
 const newBookButton = document.querySelector("#new-book")
 const hideBookEntry = document.querySelector("#close")
 const submit = document.querySelector("#create-book")
@@ -69,7 +69,7 @@ function addToShelf() {
 
         const read = document.createElement("p")
         read.classList.add('read')
-        read.textContent = book.read == true ? "I've read this" : "I haven't read this yet"
+        read.textContent = book.read ? "I've read this" : "I haven't read this yet"
 
         const deleteButton = document.createElement("button")
         deleteButton.classList.add("delete-button")
