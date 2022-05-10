@@ -1,5 +1,29 @@
+@font-face {
+    font-family: SF-Pro-Display;
+    src: url(../fonts/SF-Pro-Display.OTF);
+}
+
+@font-face {
+    font-family: SF-Pro-Text;
+    src: url(../fonts/SF-Pro-Text.ttf);
+}
+
+:root {
+    font-family: SF-Pro-Text, sans-serif;
+    --level-one: rgb(21, 21, 21);
+    --level-two: rgb(30, 30, 30);
+    --level-three: rgb(38, 38, 38);
+    --highlights: rgb(56, 56, 56);
+    --text-colour: rgb(248, 248, 248);
+}
+
+* h1,
+* h2 {
+    font-family: SF-Pro-Display, sans-serif;
+}
+
 body {
-    background-color: #121212;
+    background-color: var(--level-one);
 }
 
 #top-bar {
@@ -17,7 +41,7 @@ header {
 header>h1,
 header>h2 {
     margin: 0.5rem;
-    color: white;
+    color: var(--text-colour);
 }
 
 header>h1 {
@@ -36,35 +60,44 @@ nav {
 }
 
 nav>button {
-    font-size: 0.8rem;
-    padding: 0.8rem;
-    border-radius: 12px;
-    background-image: linear-gradient( burlywood, saddlebrown);
-    color: rgba(255, 255, 255, 1);
+    font-size: 0.9rem;
+    padding: 0.7rem;
+    border-radius: 10px;
+    background-color: var(--highlights);
+    color: var(--text-colour);
     border-style: none;
+    transition: opacity 0.1s ease-out 0s;
+}
+
+nav>button:hover {
+    opacity: 0.75;
 }
 
 main {
     margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
 }
 
 ul {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 200px);
-    grid-gap: 3rem;
+    grid-template-columns: repeat(auto-fill, 300px);
+    grid-gap: 2rem;
     justify-content: space-evenly;
     padding: 2rem;
-    width: 80vw;
+    width: 90vw;
     margin: 0 auto;
     list-style: none;
 }
 
 li {
     text-align: center;
-    height: 250px;
+    height: 140px;
     font-size: 1.2rem;
     padding: 12px;
-    background-color: rgb(48, 48, 48);
+    background-color: var(--level-two);
+    color: var(--text-colour);
+    border-radius: 10px;
 }
 
 #modal {
@@ -78,7 +111,7 @@ li {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
-    color: white;
+    color: var(--text-colour);
 }
 
 #modal>div,
@@ -90,7 +123,7 @@ li {
 
 #modal>div {
     text-align: center;
-    background-color: #202945;
+    background-color: var(--level-three);
 }
 
 #book-entry-title {
@@ -103,8 +136,8 @@ li {
 }
 
 #book-entry-form {
-    background-color: #152028;
-    border-bottom: 1px solid #152028;
+    background-color: var(--level-two);
+    border-bottom: 1px solid --level-two;
 }
 
 #book-entry-form>div:last-child {
@@ -115,9 +148,14 @@ input[type="text"] {
     font: 1em sans-serif;
     width: 240px;
     box-sizing: border-box;
-    border: 1px solid #152028;
+    background: var(--level-two);
+    border: 1px solid var(--highlights);
     border-radius: 5px;
     padding: 5px;
+}
+
+input:focus {
+    outline-color: rgb(57, 103, 143);
 }
 
 label>p {

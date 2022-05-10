@@ -3,11 +3,12 @@ window.onload = function() {
     createDeleteButtons()
 }
 
-const bookshelf = document.querySelector(".bookshelf")
-const bookEntry = document.querySelector("#modal")
-const newBookButton = document.querySelector("#new-book")
-const hideBookEntry = document.querySelector("#close")
-const submit = document.querySelector("#create-book")
+const bookshelf = document.querySelector("#bookshelf")
+const newBookButton = document.querySelector("#new-book-button")
+const bookEntryModal = document.querySelector("#modal")
+const bookEntryForm = document.querySelector("#book-entry-form")
+const closeEntryForm = document.querySelector("#close-entry-form")
+const createBookButton = document.querySelector("#create-book-button")
 
 
 const myLibrary = [{
@@ -35,11 +36,11 @@ function Book(title, author, pages, read) {
 };
 
 newBookButton.addEventListener('click', () => {
-    bookEntry.style.display = "block"
+    bookEntryModal.style.display = "block"
 });
 
-hideBookEntry.addEventListener('click', () => {
-    bookEntry.style.display = "none"
+closeEntryForm.addEventListener('click', () => {
+    bookEntryModal.style.display = "none"
 });
 
 function addToLibrary() {
@@ -92,8 +93,7 @@ function addToShelf() {
 }
 
 function prevent() {
-    const form = document.querySelector("#my-form")
-    form.addEventListener("submit", (e) => {
+    bookEntryForm.addEventListener("submit", (e) => {
         e.preventDefault();
     })
 }
@@ -104,13 +104,13 @@ function clearMyLibrary() {
     }
 }
 
-submit.addEventListener("click", () => {
+createBookButton.addEventListener("click", () => {
     prevent()
     addToLibrary()
     addToShelf()
     createDeleteButtons()
-    bookEntry.style.display = "none"
-    document.getElementById("my-form").reset()
+    bookEntryModal.style.display = "none"
+    bookEntryForm.reset()
 })
 
 function createDeleteButtons() {
