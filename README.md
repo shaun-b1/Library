@@ -55,7 +55,7 @@ The original instructions on [The Odin Project's page](https://www.theodinprojec
  ![[Add Book Screenshot.png]]
  
 2. Clicking on this will bring up a modal with a form to enter a book into the library. Fill this in, and press submit to add the book. 
-![[Modal Screenshot.png]]
+![assets/images/Modal Screenshot.png]
 
 3. Once submitted, the form will close, and the book will appear on the page. 
 ![[Read Screenshot.png]]
