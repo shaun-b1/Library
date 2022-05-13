@@ -22,6 +22,10 @@
     font-family: SF-Pro-Display, sans-serif;
 }
 
+* button {
+    cursor: pointer;
+}
+
 body {
     background-color: var(--level-one);
 }
@@ -59,17 +63,17 @@ nav {
     margin: 2rem;
 }
 
-nav>button {
+#new-book-button {
     font-size: 0.9rem;
     padding: 0.7rem;
     border-radius: 10px;
-    background-color: var(--highlights);
+    background: var(--highlights);
     color: var(--text-colour);
     border-style: none;
     transition: opacity 0.1s ease-out 0s;
 }
 
-nav>button:hover {
+#new-book-button:hover {
     opacity: 0.75;
 }
 
@@ -103,10 +107,35 @@ main {
     border-radius: 10px;
 }
 
+.title {
+    font-family: SF-Pro-Display;
+    font-size: 1.7rem;
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid var(--text-colour);
+    margin-bottom: 0.3rem;
+}
+
+.read-button {
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: SF-Pro-Text;
+    color: var(--text-colour);
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+
 .delete-button {
     order: -1;
     justify-self: flex-start;
     align-self: end;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-colour);
 }
 
 #modal {
@@ -137,7 +166,6 @@ main {
 
 #book-entry-title {
     border-radius: 0.7em 0.7em 0 0;
-    border-bottom: 0.5px solid goldenrod;
 }
 
 #book-entry-title>h2 {
@@ -161,10 +189,15 @@ input[type="text"] {
     border: 1px solid var(--highlights);
     border-radius: 5px;
     padding: 5px;
+    color: var(--text-colour);
 }
 
 input:focus {
     outline-color: rgb(57, 103, 143);
+}
+
+input::placeholder {
+    color: var(--highlights);
 }
 
 label>p {
@@ -188,15 +221,38 @@ input[type="radio"] {
 
 #book-entry-button-group {
     border-radius: 0 0 0.7em 0.7em;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 #book-entry-button-group>button {
-    font-size: 0.8rem;
-    padding: 10px 20px;
-    border-radius: 5px;
-    background: lightblue;
-    color: rgba(255, 255, 255, 1);
+    font-size: 0.9rem;
+    width: 120px;
+    padding: 0.7rem;
+    border-radius: 10px;
+    color: var(--level-three);
     border-style: none;
+    transition: opacity 0.1s ease-out 0s;
+}
+
+#book-entry-button-group>button:hover {
+    opacity: 0.75;
+}
+
+#close-entry-form {
+    background: rgb(237, 106, 94);
+}
+
+#create-book-button {
+    background: rgb(98, 196, 84)
+}
+
+@media (max-width: 871px) {
+    #modal>div,
+    #modal>form {
+        width: 60%;
+    }
 }
 
 @media (max-width: 756px) {
@@ -209,13 +265,6 @@ input[type="radio"] {
     }
 }
 
-@media (max-width: 871px) {
-    #modal>div,
-    #modal>form {
-        width: 60%;
-    }
-}
-
 @media (max-width: 600px) {
     #book-entry-form {
         display: flex;
@@ -224,7 +273,6 @@ input[type="radio"] {
         margin: 0 auto;
         width: 60%;
         padding: 1em;
-        border: 0.2px solid grey;
     }
     #book-entry-form>div {
         display: inline-flex;
@@ -237,7 +285,7 @@ input[type="radio"] {
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 441px) {
     input[type="text"] {
         width: 200px;
     }
