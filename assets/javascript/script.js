@@ -28,8 +28,8 @@ function addToLibrary() {
     myLibrary.push(newBook)
 
     // Adding the object to the DOM
-    const item = document.createElement("li")
-    item.classList.add('book')
+    const entry = document.createElement("li")
+    entry.classList.add('book')
 
     const title = document.createElement("h2")
     title.textContent = `${newBook.title}`
@@ -48,8 +48,8 @@ function addToLibrary() {
 
     const deleteButton = createDeleteButton(newBook)
 
-    item.append(title, author, pages, readButton, deleteButton)
-    bookshelf.appendChild(item)
+    entry.append(title, author, pages, readButton, deleteButton)
+    bookshelf.appendChild(entry)
 }
 
 // Prevent usual form functionality
@@ -65,7 +65,7 @@ function createReadButton(book) {
     readButton.classList.add('read-button')
     readButton.textContent = book.read ? "I've read this" : "I haven't read this yet"
     readButton.addEventListener('click', () => {
-        if (readButton.textContent === "I've read this") {
+        if (book.read === true) {
             readButton.textContent = "I haven't read this yet"
             book.read = false
         } else {

@@ -26,6 +26,11 @@
     cursor: pointer;
 }
 
+* a {
+    color: var(--text-colour);
+    text-decoration: none;
+}
+
 body {
     background-color: var(--level-one);
 }
@@ -246,6 +251,18 @@ input[type="radio"] {
 
 #create-book-button {
     background: rgb(98, 196, 84)
+}
+
+footer {
+    width: 100%;
+    height: 15px;
+    padding: 10px;
+    background: var(--level-two);
+    color: var(--text-colour);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    opacity: 0.8;
 }
 
 @media (max-width: 871px) {
