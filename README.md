@@ -1,7 +1,7 @@
 # Library
 ## Table of Contents 
-- [[README#Introduction|Introduction]]
-- [[README#About The Task|About The Task]] 
+- [Introduction](Introduction)
+- [About The Task](About%20The%20Task)
 	- [[README#About The Task#Screenshots|Screenshots]]
 		- [[README#About The Task#Screenshots#Desktop|Desktop]]
 		- [[README#About The Task#Screenshots#Mobile|Mobile]]
@@ -52,7 +52,7 @@ The original instructions on [The Odin Project's page](https://www.theodinprojec
 ## How To Use
 
 1. Click on the "Add Book to Library" button
- ![[Add Book Screenshot.png]]
+ ![assets/images/Add%20Book%20Screenshot.png]
  
 2. Clicking on this will bring up a modal with a form to enter a book into the library. Fill this in, and press submit to add the book. 
 ![assets/images/Modal Screenshot.png]
