@@ -1,6 +1,8 @@
 window.onload = function() {
+
     addToShelf()
-    createDeleteButtons()
+
+
 }
 
 const bookshelf = document.querySelector("#bookshelf")
@@ -61,31 +63,21 @@ function addToShelf() {
 
         const title = document.createElement("h2")
         title.textContent = `${book.title}`
+        title.classList.add("title")
 
         const author = document.createElement("h2")
         author.textContent = `${book.author}`
+        author.classList.add("author")
+
 
         const pages = document.createElement("p")
         pages.textContent = `${book.pages} pages`
+        pages.classList.add("pages")
 
-        const read = document.createElement("p")
-        read.classList.add('read')
-        read.textContent = book.read ? "I've read this" : "I haven't read this yet"
+        const read = createReadButton(book)
 
-        const deleteButton = document.createElement("button")
-        deleteButton.classList.add("delete-button")
-        deleteButton.setAttribute("data-index", `${myLibrary.indexOf(book)}`)
-        deleteButton.textContent = "Delete me!"
+        const deleteButton = createDeleteButton(book)
 
-        read.addEventListener('click', () => {
-            if (read.textContent === "I've read this") {
-                read.textContent = "I haven't read this yet"
-                book.read = false
-            } else {
-                read.textContent = "I've read this"
-                book.read = true
-            }
-        })
 
         item.append(title, author, pages, read, deleteButton)
         bookshelf.appendChild(item)
@@ -108,18 +100,34 @@ createBookButton.addEventListener("click", () => {
     prevent()
     addToLibrary()
     addToShelf()
-    createDeleteButtons()
     bookEntryModal.style.display = "none"
     bookEntryForm.reset()
 })
 
-function createDeleteButtons() {
-    const deleteButtons = document.querySelectorAll(".delete-button")
-    deleteButtons.forEach((element) => {
-        element.addEventListener('click', () => {
-            myLibrary.splice(element.dataset.index, 1)
-            addToShelf()
-            createDeleteButtons()
-        })
+function createReadButton(book) {
+    const read = document.createElement("p")
+    read.classList.add('read')
+    read.textContent = book.read ? "I've read this" : "I haven't read this yet"
+    read.addEventListener('click', () => {
+        if (read.textContent === "I've read this") {
+            read.textContent = "I haven't read this yet"
+            book.read = false
+        } else {
+            read.textContent = "I've read this"
+            book.read = true
+        }
     })
+    return read
+}
+
+function createDeleteButton(book) {
+    const deleteButton = document.createElement('button')
+    deleteButton.classList.add("delete-button")
+    deleteButton.setAttribute("data-index", `${myLibrary.indexOf(book)}`)
+    deleteButton.textContent = "X"
+    deleteButton.addEventListener('click', () => {
+        myLibrary.splice(myLibrary.indexOf(book), 1)
+        deleteButton.parentElement.remove()
+    })
+    return deleteButton;
 }

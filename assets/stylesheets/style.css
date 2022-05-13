@@ -79,7 +79,7 @@ main {
     justify-content: flex-start;
 }
 
-ul {
+#bookshelf {
     display: grid;
     grid-template-columns: repeat(auto-fill, 300px);
     grid-gap: 2rem;
@@ -90,14 +90,23 @@ ul {
     list-style: none;
 }
 
-li {
-    text-align: center;
-    height: 140px;
+.book {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 130px;
     font-size: 1.2rem;
     padding: 12px;
     background-color: var(--level-two);
     color: var(--text-colour);
     border-radius: 10px;
+}
+
+.delete-button {
+    order: -1;
+    justify-self: flex-start;
+    align-self: end;
 }
 
 #modal {
