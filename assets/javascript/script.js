@@ -44,9 +44,9 @@ function addToLibrary() {
     pages.textContent = `${newBook.pages} pages`
     pages.classList.add("pages")
 
-    const readButton = createReadButton(newBook)
+    const readButton = newBook.createReadButton()
 
-    const deleteButton = createDeleteButton(newBook)
+    const deleteButton = newBook.createDeleteButton()
 
     entry.append(title, author, pages, readButton, deleteButton)
     bookshelf.appendChild(entry)
@@ -60,30 +60,29 @@ function prevent() {
 }
 
 // Create read button function that is called in addToLibrary()
-function createReadButton(book) {
+Book.prototype.createReadButton = function() {
     const readButton = document.createElement("button")
     readButton.classList.add('read-button')
-    readButton.textContent = book.read ? "I've read this" : "I haven't read this yet"
+    readButton.textContent = this.read ? "I've read this" : "I haven't read this yet"
     readButton.addEventListener('click', () => {
-        if (book.read === true) {
+        if (this.read === true) {
             readButton.textContent = "I haven't read this yet"
-            book.read = false
+            this.read = false
         } else {
             readButton.textContent = "I've read this"
-            book.read = true
+            this.read = true
         }
     })
     return readButton
 }
 
 // Create delete button function that is called in addToLibrary()
-function createDeleteButton(book) {
+Book.prototype.createDeleteButton = function() {
     const deleteButton = document.createElement('button')
     deleteButton.classList.add("delete-button")
-    deleteButton.setAttribute("data-index", `${myLibrary.indexOf(book)}`)
     deleteButton.textContent = "x"
     deleteButton.addEventListener('click', () => {
-        myLibrary.splice(myLibrary.indexOf(book), 1)
+        myLibrary.splice(myLibrary.indexOf(this), 1)
         deleteButton.parentElement.remove()
     })
     return deleteButton;
