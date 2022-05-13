@@ -1,14 +1,14 @@
 # Library
 ## Table of Contents 
-- [Introduction](Introduction)
-- [About The Task](About%20The%20Task)
-	- [[README#About The Task#Screenshots|Screenshots]]
-		- [[README#About The Task#Screenshots#Desktop|Desktop]]
-		- [[README#About The Task#Screenshots#Mobile|Mobile]]
-	- [[README#About The Task#Instructions|Instructions]]
-- [[README#How To Use|How To Use]]
-- [[README#Reflections|Reflections]]
-- [[README#Further Links|Further Links]]
+- [Introduction](#introduction)
+- [About The Task](#about-the-task)
+	- [Screenshots](#screenshots)
+		- [Desktop](#desktop)
+		- [Mobile](#mobile)
+	- [Instructions](#instructions)
+- [How To Use](#how-to-use)
+- [Reflections](#reflections)
+- [Further Links](#further-links)
 
 ## Introduction 
 
@@ -17,11 +17,11 @@ This task was completed as part of [The Odin Project](https://www.theodinproject
 ### Screenshots 
 #### Desktop 
 
-![[Desktop Screenshot.png]]
+<img src="./assets/images/Desktop%20Screenshot.png" />
 
 #### Mobile 
 
-![[Mobile Screenshot.jpg]]
+<img src="./assets/images/Mobile%20Screenshot.jpg" />
 
 ### Instructions
 
@@ -52,16 +52,16 @@ The original instructions on [The Odin Project's page](https://www.theodinprojec
 ## How To Use
 
 1. Click on the "Add Book to Library" button
- ![assets/images/Add%20Book%20Screenshot.png]
+<img src="./assets/images/Add%20Book%20Screenshot.png" />
  
 2. Clicking on this will bring up a modal with a form to enter a book into the library. Fill this in, and press submit to add the book. 
-![assets/images/Modal Screenshot.png]
+<img src="./assets/images/Modal%20Screenshot.png" />
 
 3. Once submitted, the form will close, and the book will appear on the page. 
-![[Read Screenshot.png]]
+<img src="./assets/images/Read%20Screenshot.png" />
 
 4. You can edit whether or not you have read the book by clicking on the "I've read this" / "I haven't read this yet" button on the entry 
-![[Not Read Screenshot.png]]
+<img src="./assets/images/Not%20Read%20Screenshot.png" />
 
 5. You can delete the entry by clicking on the 'x' in the top right corner of an entry. 
 
@@ -74,4 +74,5 @@ Objects seem pretty straight forward, coming from Ruby; they are just functions 
 ## Further Links
 
 [My Github](https://github.com/shaun-b1)
+<br>
 [Live Project](https://shaun-b1.github.io/Library/)
